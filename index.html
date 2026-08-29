@@ -6,11 +6,11 @@
 <title>Bükme</title>
 <meta name="description" content="Kırılmadan esneme, şekil alma ve yön verme sanatı üzerine kısa bir felsefe manifestosu." />
 <meta name="color-scheme" content="light dark" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312160f'/%3E%3Cpath d='M32 57 C19 44,41 33,28 19 C20 10,39 8,33 3' fill='none' stroke='%23a7c977' stroke-width='4.5' stroke-linecap='round'/%3E%3Cpath d='M21 33 Q9 27 5 18 Q18 21 27 29 Z' fill='%23e3a35c'/%3E%3C/svg%3E">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Work+Sans:wght@400;500;600;700&display=swap');
 
-  /* ---- tokens (dark-first: bare :root is the dark palette) ---- */
-  :root {
+    :root {
     --bg: #12160f;
     --surface: #1a2015;
     --surface-2: #212818;
@@ -66,8 +66,7 @@
     overflow-x: hidden;
   }
 
-  /* faint grain, keeps the dark ground from feeling flat */
-  body::before {
+    body::before {
     content: "";
     position: fixed;
     inset: 0;
@@ -109,8 +108,7 @@
     * { animation: none !important; }
   }
 
-  /* ---------------- hero ---------------- */
-  .hero {
+    .hero {
     position: relative;
     padding: 6.5rem 0 3.5rem;
     overflow: hidden;
@@ -143,12 +141,10 @@
   .culm-leaf.soft { fill: var(--accent); opacity: 0.7; }
   .culm-node { stroke: var(--bg); stroke-width: 2; opacity: 0.6; }
 
-  /* bend glyph, reused as small bullet / connector */
-  .glyph { width: 22px; height: 22px; flex: none; }
+    .glyph { width: 22px; height: 22px; flex: none; }
   .glyph path { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; }
 
-  /* ---------------- intro ---------------- */
-  .intro { padding-top: 1rem; }
+    .intro { padding-top: 1rem; }
   .intro-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3rem; align-items: center; }
   .intro .prose { display: flex; flex-direction: column; gap: 1.4rem; font-size: 1.05rem; color: var(--text-muted); }
   .intro .prose strong { color: var(--text); font-weight: 500; }
@@ -167,8 +163,7 @@
   .divider svg { width: 120px; height: 20px; }
   .divider path { fill: none; stroke: var(--accent-2); stroke-width: 2; stroke-linecap: round; }
 
-  /* ---------------- pillars ---------------- */
-  h2 { font-size: clamp(1.7rem, 3.2vw, 2.3rem); font-weight: 500; letter-spacing: -0.01em; margin-bottom: 2.2rem; }
+    h2 { font-size: clamp(1.7rem, 3.2vw, 2.3rem); font-weight: 500; letter-spacing: -0.01em; margin-bottom: 2.2rem; }
   .pillars-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -190,8 +185,7 @@
   .pillar h3 { font-size: 1.18rem; font-weight: 500; }
   .pillar p { color: var(--text-muted); font-size: 0.97rem; }
 
-  /* ---------------- matrix ---------------- */
-  .stone-banner { display: flex; justify-content: center; margin-bottom: 2.4rem; }
+    .stone-banner { display: flex; justify-content: center; margin-bottom: 2.4rem; }
   .stone-banner svg { width: 240px; height: 54px; overflow: visible; }
   .matrix-head {
     display: grid;
@@ -225,8 +219,7 @@
   .m-arrow .glyph { transform: rotate(-90deg); width: 18px; height: 18px; }
   .m-arrow .glyph path { stroke: var(--accent-2); }
 
-  /* ---------------- practice ---------------- */
-  .practice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; position: relative; }
+    .practice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; position: relative; }
   .practice-connector { grid-column: 1 / -1; height: 34px; margin-bottom: -0.6rem; }
   .practice-connector svg { width: 100%; height: 34px; display: block; }
   .practice-connector path { fill: none; stroke: var(--border); stroke-width: 2; stroke-dasharray: 1 8; stroke-linecap: round; }
@@ -237,8 +230,7 @@
   .step h3 { font-size: 1.25rem; font-weight: 500; }
   .step p { color: var(--text-muted); font-size: 0.96rem; }
 
-  /* ---------------- manifesto ---------------- */
-  .grass-banner { width: 100%; height: 84px; margin: 0 0 2.2rem; overflow: visible; }
+    .grass-banner { width: 100%; height: 84px; margin: 0 0 2.2rem; overflow: visible; }
   .blade { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; opacity: 0.55; transform-box: fill-box; transform-origin: bottom center; animation: sway 6s ease-in-out infinite; }
   .manifesto-list { display: flex; flex-direction: column; }
   .manifesto-list li {
@@ -255,8 +247,7 @@
   .manifesto-list li:last-child { border-bottom: 1px solid var(--border); }
   .manifesto-list .glyph { margin-top: 0.35rem; }
 
-  /* ---------------- closing ---------------- */
-  .closing { text-align: center; }
+    .closing { text-align: center; }
   .closing-banner { width: 100%; max-width: 760px; margin: 0 auto 2.6rem; overflow: visible; }
   .closing-banner .moon { animation: bob 8s ease-in-out infinite; transform-origin: center; }
   .closing blockquote {
