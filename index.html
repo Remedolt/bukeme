@@ -247,6 +247,78 @@
   .manifesto-list li:last-child { border-bottom: 1px solid var(--border); }
   .manifesto-list .glyph { margin-top: 0.35rem; }
 
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+  .certify { text-align: center; }
+  .certify-lede { max-width: 46ch; margin: 0 auto 2.4rem; color: var(--text-muted); font-size: 1.02rem; }
+  .certify-form { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+  .certify-form input {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.85rem 1.1rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    min-width: 260px;
+  }
+  .certify-form input::placeholder { color: var(--text-muted); }
+  .certify-form input:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .certify-form button {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 0.85rem 1.4rem;
+    border-radius: 10px;
+    border: 1px solid var(--accent);
+    background: var(--accent-soft);
+    color: var(--accent);
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+  }
+  .certify-form button:hover { background: var(--accent); color: var(--bg); }
+  .certify-hint { margin-top: 1.4rem; font-size: 0.82rem; color: var(--text-muted); }
+
+  .certificate {
+    position: relative;
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 3.4rem 2.8rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 30px 60px -24px var(--shadow);
+  }
+  .certificate::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    pointer-events: none;
+  }
+  .certificate-corner { position: absolute; width: 26px; height: 26px; opacity: 0.4; }
+  .certificate-corner svg { width: 100%; height: 100%; }
+  .certificate-corner path { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; }
+  .certificate-corner.tl { top: 18px; left: 18px; }
+  .certificate-corner.tr { top: 18px; right: 18px; transform: scaleX(-1); }
+  .certificate-corner.bl { bottom: 18px; left: 18px; transform: scaleY(-1); }
+  .certificate-corner.br { bottom: 18px; right: 18px; transform: scale(-1, -1); }
+  .cert-seal { width: 28px; height: 28px; margin: 0 auto 1rem; display: block; }
+  .cert-seal path { fill: none; stroke: var(--accent-2); stroke-width: 2; stroke-linecap: round; }
+  .cert-eyebrow { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin: 0 0 0.6rem; }
+  .cert-title { font-size: clamp(1.55rem, 3.2vw, 2rem); font-weight: 500; letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 1.7rem; }
+  .cert-body { font-size: 0.98rem; color: var(--text-muted); margin: 0 auto 0.3rem; max-width: 44ch; }
+  .cert-name { font-family: var(--font-display); font-style: italic; color: var(--text); font-size: 1.18em; font-weight: 500; word-break: break-word; }
+  .cert-quote { margin-top: 1.7rem; font-family: var(--font-display); font-style: italic; color: var(--accent-2); font-size: 1.05rem; }
+  .cert-signature { margin-top: 2.2rem; display: flex; flex-direction: column; align-items: center; gap: 0.35rem; }
+  .cert-sign-name { font-family: var(--font-display); font-style: italic; font-size: 1.08rem; color: var(--text); padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); min-width: 190px; }
+  .cert-sign-role { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+  .cert-footer { display: flex; justify-content: center; gap: 2.6rem; margin-top: 2rem; padding-top: 1.6rem; border-top: 1px dashed var(--border); }
+  .cert-footer-col { display: flex; flex-direction: column; gap: 0.3rem; }
+  .cert-label { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+  .cert-value { font-family: var(--font-display); font-size: 0.95rem; color: var(--text); }
+
     .closing { text-align: center; }
   .closing-banner { width: 100%; max-width: 760px; margin: 0 auto 2.6rem; overflow: visible; }
   .closing-banner .moon { animation: bob 8s ease-in-out infinite; transform-origin: center; }
@@ -279,6 +351,10 @@
     .m-cell.bend { border-left: none; border-top: 2px solid var(--accent); padding-left: 0; padding-top: 0.6rem; }
     .practice-grid { grid-template-columns: 1fr; gap: 2.2rem; }
     .practice-connector { display: none; }
+    .certificate { padding: 2.4rem 1.4rem; }
+    .certificate-corner { width: 20px; height: 20px; }
+    .certify-form { flex-direction: column; align-items: stretch; }
+    .certify-form input { min-width: 0; }
   }
 </style>
 </head>
@@ -505,6 +581,48 @@
     </div>
   </section>
 
+  <section class="certify">
+    <div class="wrap">
+      <h2>Bükme Sertifikanı Oluştur</h2>
+      <p class="certify-lede">Adını yaz, felsefenin ustası olduğunu tasdik eden sertifikan anında belirsin.</p>
+      <div class="certify-form">
+        <label for="certName" class="sr-only">Adın</label>
+        <input type="text" id="certName" placeholder="Adını yaz…" maxlength="42" autocomplete="off" />
+        <button type="button" id="certDownload">Sertifikayı PDF indir</button>
+      </div>
+
+      <div class="certificate" id="certificate">
+        <div class="certificate-corner tl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 18 C 8 6, 16 22, 21 6" /></svg></div>
+        <div class="certificate-corner tr" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 18 C 8 6, 16 22, 21 6" /></svg></div>
+        <div class="certificate-corner bl" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 18 C 8 6, 16 22, 21 6" /></svg></div>
+        <div class="certificate-corner br" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 18 C 8 6, 16 22, 21 6" /></svg></div>
+
+        <svg class="cert-seal" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18 C 8 6, 16 22, 21 6" /></svg>
+        <p class="cert-eyebrow">Bükme Felsefesi</p>
+        <h3 class="cert-title">Usta Bükücü</h3>
+        <p class="cert-body">İşbu belge <span id="certName-out" class="cert-name">Adın Burada</span>'nın</p>
+        <p class="cert-body">kırılmadan esneme, şekil alma ve yön verme sanatında</p>
+        <p class="cert-body">ustalaştığını onurla tasdik eder.</p>
+        <p class="cert-quote">"Bükül, kırılma."</p>
+        <div class="cert-signature">
+          <span class="cert-sign-name">Emre Özşahan</span>
+          <span class="cert-sign-role">Eğitmen, Bükme Felsefesi</span>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-footer-col">
+            <span class="cert-label">Tarih</span>
+            <span id="certDate" class="cert-value">—</span>
+          </div>
+          <div class="cert-footer-col">
+            <span class="cert-label">Sertifika No</span>
+            <span id="certNo" class="cert-value">—</span>
+          </div>
+        </div>
+      </div>
+      <p class="certify-hint">"Sertifikayı PDF indir" sertifikanı tek sayfalık bir PDF olarak kaydeder.</p>
+    </div>
+  </section>
+
   <section class="closing">
     <div class="wrap">
       <svg class="closing-banner" viewBox="0 0 760 150" aria-hidden="true">
@@ -529,5 +647,75 @@
   </footer>
 
 </main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+(function () {
+  var nameInput = document.getElementById('certName');
+  var nameOut = document.getElementById('certName-out');
+  var dateOut = document.getElementById('certDate');
+  var noOut = document.getElementById('certNo');
+  var downloadBtn = document.getElementById('certDownload');
+  var certEl = document.getElementById('certificate');
+
+  function todayStr() {
+    var d = new Date();
+    return d.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  function hashStr(str) {
+    var h = 0;
+    for (var i = 0; i < str.length; i++) {
+      h = (h * 31 + str.charCodeAt(i)) >>> 0;
+    }
+    return h;
+  }
+
+  function certNo(name) {
+    var y = new Date().getFullYear();
+    var seed = (name.trim() ? name.trim().toLocaleUpperCase('tr-TR') : 'BUKME') + y;
+    var code = (hashStr(seed) % 9000) + 1000;
+    return 'BK-' + y + '-' + code;
+  }
+
+  function render() {
+    var raw = nameInput.value;
+    var name = raw.trim() || 'Adın Burada';
+    nameOut.textContent = name;
+    dateOut.textContent = todayStr();
+    noOut.textContent = certNo(raw);
+  }
+
+  if (nameInput) {
+    nameInput.addEventListener('input', render);
+    render();
+  }
+
+  if (downloadBtn && certEl) {
+    downloadBtn.addEventListener('click', function () {
+      if (typeof html2canvas === 'undefined' || typeof window.jspdf === 'undefined') return;
+      var label = (nameInput.value.trim() || 'bukme').toLocaleLowerCase('tr-TR').replace(/\s+/g, '-');
+      var originalText = downloadBtn.textContent;
+      downloadBtn.textContent = 'Hazırlanıyor…';
+      downloadBtn.disabled = true;
+      html2canvas(certEl, { backgroundColor: '#f5f2e6', scale: 3 }).then(function (canvas) {
+        var imgData = canvas.toDataURL('image/png');
+        var jsPDF = window.jspdf.jsPDF;
+        var pdf = new jsPDF({
+          orientation: canvas.width >= canvas.height ? 'landscape' : 'portrait',
+          unit: 'px',
+          format: [canvas.width, canvas.height]
+        });
+        pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+        pdf.save('bukme-sertifikasi-' + label + '.pdf');
+      }).finally(function () {
+        downloadBtn.textContent = originalText;
+        downloadBtn.disabled = false;
+      });
+    });
+  }
+})();
+</script>
 </body>
 </html>
